@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: kube-todo
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: kube-todo
   ports:
-  - nodePort: 30080
-    port: 1235
-    targetPort: 3000
+    - port: 2345
+      targetPort: 3000
