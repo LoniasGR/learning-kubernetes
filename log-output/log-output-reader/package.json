@@ -1,5 +1,5 @@
 {
-  "name": "log-output",
+  "name": "log-output-reader",
   "license": "MIT",
   "packageManager": "yarn@3.2.0",
   "main": "index.js",

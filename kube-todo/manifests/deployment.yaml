@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: kube-todo
-        image: lonias/kube-todo
+        image: lonias/kube-todo:0.0.1
         resources:
           limits:
             memory: "256Mi"
