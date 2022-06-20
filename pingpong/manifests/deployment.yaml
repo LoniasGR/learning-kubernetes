@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pingpong
+spec:
+  selector:
+    matchLabels:
+      app: pingpong
+  template:
+    metadata:
+      labels:
+        app: pingpong
+    spec:
+      volumes: # Define volume
+        - name: shared-text
+          persistentVolumeClaim:
+            claimName: texts-claim
+      containers:
+        - name: pingpong
+          image: lonias/pingpong:0.0.2
+          volumeMounts:
+            - mountPath: /app/data
+              name: shared-text
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3000
