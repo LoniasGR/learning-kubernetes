@@ -1,0 +1,14 @@
+{
+  "name": "log-output-writer",
+  "license": "MIT",
+  "packageManager": "yarn@3.2.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "latest",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
