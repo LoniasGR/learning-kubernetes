@@ -12,11 +12,28 @@ spec:
       labels:
         app: log-output
     spec:
+      volumes: # Define volume
+        - name: shared-text
+          persistentVolumeClaim:
+            claimName: texts-claim
       containers:
-      - name: log-output
-        image: lonias/log-output
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-            ephemeral-storage: "128Mi"
+        - name: log-output-writer
+          image: lonias/log-output-writer:0.0.2
+          volumeMounts:
+            - mountPath: /app/data
+              name: shared-text
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+              ephemeral-storage: "128Mi"
+        - name: log-output-reader
+          image: lonias/log-output-reader:0.0.9
+          volumeMounts:
+            - mountPath: /app/data
+              name: shared-text
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+              ephemeral-storage: "128Mi"

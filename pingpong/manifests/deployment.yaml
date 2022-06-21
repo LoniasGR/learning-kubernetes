@@ -17,7 +17,7 @@ spec:
             claimName: texts-claim
       containers:
         - name: pingpong
-          image: lonias/pingpong:0.0.2
+          image: lonias/pingpong:0.0.3
           volumeMounts:
             - mountPath: /app/data
               name: shared-text

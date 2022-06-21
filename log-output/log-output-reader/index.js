@@ -4,17 +4,24 @@ const fs = require('fs');
 
 const app = express();
 const port = 3000;
-const file = 'timestamp.txt';
+const timestampFile = 'data/timestamp.txt';
+const pingpongFile = 'data/pingpong.txt';
 
 const uuid = crypto.randomUUID();
 
 app.get('/status', (req, res) => {
-  fs.readFile(file, 'utf-8', (err, data) => {
-    if (err) {
-      res.send(err);
+  fs.readFile(timestampFile, 'utf-8', (err1, timestamp) => {
+    if (err1) {
+      res.send(err1);
     } else {
-    const status = `${data}: ${uuid}`;
-    res.send(status);
+      fs.readFile(pingpongFile, 'utf-8', (err2, pongs) => {
+        if (err2) {
+          res.send(err2);
+        } else {
+          const status = `<p>${timestamp}: ${uuid}<br>Ping \\ Pongs: ${pongs}</p>`;
+          res.send(status);
+        }
+      });
     }
   });
 });

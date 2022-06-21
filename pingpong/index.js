@@ -8,7 +8,7 @@ let pong = 0;
 
 app.get('/pingpong', (req, res) => {
   res.send(`PONG ${pong}`);
-  fs.writeFile(filename, pong, {flag: 'w+'}, err => {
+  fs.writeFile(filename, pong.toString(), {flag: 'w+'}, err => {
     if (err) {
       console.error(err);
     } else {

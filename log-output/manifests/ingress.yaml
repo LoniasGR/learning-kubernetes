@@ -6,20 +6,19 @@ metadata:
     name: log-output
 spec:
   rules:
-  - http:
-      paths:
-      - pathType: Prefix
-        path: "/status"
-        backend:
-          service:
-            name: log-output
-            port:
-              number: 2345
-      - pathType: Prefix
-        path: "/pingpong"
-        backend:
-          service:
-            name: pingpong
-            port:
-              number: 2345
-
+    - http:
+        paths:
+          - pathType: Prefix
+            path: "/status"
+            backend:
+              service:
+                name: log-output
+                port:
+                  number: 2345
+          - pathType: Prefix
+            path: "/pingpong"
+            backend:
+              service:
+                name: pingpong
+                port:
+                  number: 2345
