@@ -6,12 +6,19 @@ metadata:
     name: kube-todo
 spec:
   rules:
-  - http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: kube-todo
-            port:
-              number: 2345
+    - http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: kube-todo
+                port:
+                  number: 2345
+          - pathType: Prefix
+            path: "/image-of-the-day"
+            backend:
+              service:
+                name: kube-todo
+                port:
+                  number: 2345

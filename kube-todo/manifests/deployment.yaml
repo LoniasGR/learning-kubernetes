@@ -11,11 +11,18 @@ spec:
       labels:
         app: kube-todo
     spec:
+      volumes:
+        - name: todo-data
+          persistentVolumeClaim:
+            claimName: todo-pvc
       containers:
-      - name: kube-todo
-        image: lonias/kube-todo:0.0.1
-        resources:
-          limits:
-            memory: "256Mi"
-            cpu: "500m"
-            ephemeral-storage: "256Mi"
+        - name: kube-todo
+          image: lonias/kube-todo:0.0.3
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+              ephemeral-storage: "256Mi"
+          volumeMounts:
+            - name: todo-data
+              mountPath: /app/public

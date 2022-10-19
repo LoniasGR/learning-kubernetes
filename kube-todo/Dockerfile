@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY ["package.json", "yarn.lock", ".yarn", "/app/"]
 
-RUN yarn
+RUN yarn --production=true
 
 COPY . /app
 
