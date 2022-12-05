@@ -1,14 +1,19 @@
-const fs = require('fs');
+const express = require('express');
 
-const filename = "data/timestamp.txt";
+const app = express();
+const port = 4000;
+
+let status = new Date().toISOString();
 
 setInterval(()=> {
-  const status = new Date().toISOString();
-  fs.writeFile(filename, status, {flag: 'w+'}, err => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.debug(`Wrote ${status}`)
-    }
-  });
+  status = new Date().toISOString();
 }, 5000);
+
+app.get('/date', (req, res) => {
+  res.send(status);
+})
+
+
+app.listen(port, () => {
+  console.log(`App listening on port ${port}`);
+});

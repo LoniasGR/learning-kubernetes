@@ -11,16 +11,9 @@ spec:
       labels:
         app: pingpong
     spec:
-      volumes: # Define volume
-        - name: shared-text
-          persistentVolumeClaim:
-            claimName: texts-claim
       containers:
         - name: pingpong
-          image: lonias/pingpong:0.0.3
-          volumeMounts:
-            - mountPath: /app/data
-              name: shared-text
+          image: lonias/pingpong:0.0.5
           resources:
             limits:
               memory: "128Mi"

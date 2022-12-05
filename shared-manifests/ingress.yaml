@@ -14,11 +14,11 @@ spec:
               service:
                 name: log-output
                 port:
-                  number: 2345
+                  number: 3000
           - pathType: Prefix
             path: "/pingpong"
             backend:
               service:
                 name: pingpong
                 port:
-                  number: 2345
+                  number: 3000

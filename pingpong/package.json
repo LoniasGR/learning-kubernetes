@@ -1,6 +1,7 @@
 {
   "name": "pingpong",
-  "packageManager": "yarn@3.2.4",
+  "license": "MIT",
+  "packageManager": "yarn@3.3.0",
   "scripts": {
     "start": "node index.js"
   },

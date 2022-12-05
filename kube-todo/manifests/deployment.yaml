@@ -17,7 +17,7 @@ spec:
             claimName: todo-pvc
       containers:
         - name: kube-todo
-          image: lonias/kube-todo:0.0.6
+          image: lonias/kube-todo:0.0.7
           resources:
             limits:
               memory: "256Mi"
