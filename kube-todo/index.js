@@ -5,7 +5,8 @@ const axios = require('axios');
 
 const app = express();
 
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
+
 app.use(express.static('public'));
 
 const port = process.env.PORT || 3000;
@@ -36,7 +37,7 @@ setInterval(() => {
 }, 1000 * 60 * 60 * 24);
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'My TODO list', image: 'http://localhost:8081/image-of-the-day' });
+  res.render('index', { subject: 'My TODO list', image: 'http://localhost:8081/image-of-the-day' });
 });
 
 app.get('/image-of-the-day', (req, res) => {
