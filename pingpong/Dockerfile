@@ -2,9 +2,9 @@ FROM node:18-alpine as builder
 
 WORKDIR /app
 
-COPY ["package.json", "yarn.lock", ".yarn", "/app/"]
+COPY ["package.json", "package-lock.json", "/app/"]
 
-RUN yarn
+RUN npm i
 
 FROM node:18-alpine
 
